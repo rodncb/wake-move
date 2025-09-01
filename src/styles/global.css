@@ -1,11 +1,11 @@
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
 
 :root {
-  --primary: #9CBE31;
-  --primary-dark: #7A9626;
-  --secondary: #FFD700;
+  --primary: #9cbe31;
+  --primary-dark: #7a9626;
+  --secondary: #ffd700;
 }
 
 * {
@@ -15,13 +15,14 @@
 }
 
 body {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   line-height: 1.6;
   color: #262626;
 }
 
 .font-display {
-  font-family: 'Bebas Neue', sans-serif;
+  font-family: "Oswald", "Bebas Neue", sans-serif;
+  font-weight: 700;
 }
 
 .btn-primary {

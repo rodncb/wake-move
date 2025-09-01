@@ -29,11 +29,13 @@ O Wake & Move Primavera é mais que um evento, é uma comunidade saudável que p
 ## 🛠️ Como executar
 
 1. Instale as dependências:
+
 ```bash
 npm install
 ```
 
 2. Execute o projeto em modo de desenvolvimento:
+
 ```bash
 npm run dev
 ```
@@ -49,19 +51,21 @@ npm run build
 ## 🎨 Design System
 
 ### Cores
+
 - **Verde Principal**: `#9CBE31`
-- **Verde Escuro**: `#7A9626` 
+- **Verde Escuro**: `#7A9626`
 - **Dourado**: `#FFD700`
 - **Preto/Cinza**: Para textos e backgrounds
 
 ### Tipografia
+
 - **Títulos**: Bebas Neue (display)
 - **Corpo**: Montserrat (sans-serif)
 
 ## 👥 Idealizadores
 
 - **Yume Matsumura**
-- **Marco Antônio Fernandes**  
+- **Marco Antônio Fernandes**
 - **Daniel Calazans**
 
 ## 📞 Contato
@@ -70,4 +74,4 @@ Para dúvidas sobre o evento: contato@wakemove.com.br
 
 ---
 
-*Desenvolvido com ❤️ para a comunidade Wake & Move*
+_Desenvolvido com ❤️ para a comunidade Wake & Move_

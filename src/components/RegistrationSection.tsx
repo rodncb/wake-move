@@ -1,39 +1,44 @@
-import React, { useState } from 'react'
-import { RegistrationData } from '../types'
+import React, { useState } from "react";
+import { RegistrationData } from "../types";
 
 const RegistrationSection = () => {
   const [formData, setFormData] = useState<RegistrationData>({
-    name: '',
-    email: '',
-    cpf: '',
-    phone: '',
-    distance: '4km'
-  })
+    name: "",
+    email: "",
+    cpf: "",
+    phone: "",
+    distance: "4km",
+  });
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
-    const { name, value } = e.target
-    setFormData(prev => ({
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+  ) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
       ...prev,
-      [name]: value
-    }))
-  }
+      [name]: value,
+    }));
+  };
 
   const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
+    e.preventDefault();
     // Aqui será implementada a integração com Mercado Pago
-    console.log('Dados de inscrição:', formData)
-    alert('Em breve você será redirecionado para o pagamento!')
-  }
+    console.log("Dados de inscrição:", formData);
+    alert("Em breve você será redirecionado para o pagamento!");
+  };
 
   return (
-    <section id="registration" className="section-padding bg-gradient-to-br from-[#9CBE31] to-[#7A9626]">
+    <section
+      id="registration"
+      className="section-padding bg-gradient-to-br from-[#9CBE31] to-[#7A9626]"
+    >
       <div className="container mx-auto px-6">
         <div className="text-center text-white mb-16">
           <h2 className="font-display text-4xl lg:text-5xl font-bold mb-6">
             Faça sua <span className="text-[#FFD700]">Inscrição</span>
           </h2>
           <p className="text-xl opacity-90 max-w-3xl mx-auto">
-            Garante sua vaga no Wake & Move Primavera e viva uma experiência 
+            Garante sua vaga no Wake & Move Primavera e viva uma experiência
             transformadora de movimento e bem-estar.
           </p>
         </div>
@@ -44,11 +49,13 @@ const RegistrationSection = () => {
             <h3 className="font-display text-2xl font-bold text-gray-900 mb-6">
               Kit Completo - Lote 1
             </h3>
-            
+
             <div className="space-y-4 mb-8">
               <div className="flex items-center gap-3">
                 <div className="w-2 h-2 bg-[#9CBE31] rounded-full"></div>
-                <span className="text-gray-700">Inscrição na corrida (4km ou 8km)</span>
+                <span className="text-gray-700">
+                  Inscrição na corrida (4km ou 8km)
+                </span>
               </div>
               <div className="flex items-center gap-3">
                 <div className="w-2 h-2 bg-[#9CBE31] rounded-full"></div>
@@ -66,7 +73,9 @@ const RegistrationSection = () => {
 
             <div className="border-t border-gray-200 pt-6">
               <div className="flex justify-between items-center">
-                <span className="text-2xl font-bold text-gray-900">R$ 89,00</span>
+                <span className="text-2xl font-bold text-gray-900">
+                  R$ 89,00
+                </span>
                 <span className="text-sm text-gray-500">ou 3x sem juros</span>
               </div>
             </div>
@@ -76,7 +85,10 @@ const RegistrationSection = () => {
           <div className="bg-white rounded-2xl p-8 shadow-xl">
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
-                <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+                <label
+                  htmlFor="name"
+                  className="block text-sm font-medium text-gray-700 mb-2"
+                >
                   Nome Completo *
                 </label>
                 <input
@@ -92,7 +104,10 @@ const RegistrationSection = () => {
               </div>
 
               <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                <label
+                  htmlFor="email"
+                  className="block text-sm font-medium text-gray-700 mb-2"
+                >
                   E-mail *
                 </label>
                 <input
@@ -109,7 +124,10 @@ const RegistrationSection = () => {
 
               <div className="grid md:grid-cols-2 gap-4">
                 <div>
-                  <label htmlFor="cpf" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label
+                    htmlFor="cpf"
+                    className="block text-sm font-medium text-gray-700 mb-2"
+                  >
                     CPF *
                   </label>
                   <input
@@ -125,7 +143,10 @@ const RegistrationSection = () => {
                 </div>
 
                 <div>
-                  <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label
+                    htmlFor="phone"
+                    className="block text-sm font-medium text-gray-700 mb-2"
+                  >
                     WhatsApp *
                   </label>
                   <input
@@ -142,7 +163,10 @@ const RegistrationSection = () => {
               </div>
 
               <div>
-                <label htmlFor="distance" className="block text-sm font-medium text-gray-700 mb-2">
+                <label
+                  htmlFor="distance"
+                  className="block text-sm font-medium text-gray-700 mb-2"
+                >
                   Distância da Corrida *
                 </label>
                 <select
@@ -158,10 +182,7 @@ const RegistrationSection = () => {
                 </select>
               </div>
 
-              <button
-                type="submit"
-                className="w-full btn-primary py-4 text-lg"
-              >
+              <button type="submit" className="w-full btn-primary py-4 text-lg">
                 FINALIZAR INSCRIÇÃO
               </button>
             </form>
@@ -174,7 +195,7 @@ const RegistrationSection = () => {
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default RegistrationSection
+export default RegistrationSection;
