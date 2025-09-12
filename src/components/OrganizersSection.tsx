@@ -6,19 +6,19 @@ const OrganizersSection = () => {
     {
       name: "Yume Matsumura",
       socialLinks: {
-        instagram: "@yume",
+        instagram: "@yume.matsumura",
       },
     },
     {
       name: "Marco Antônio Fernandes",
       socialLinks: {
-        instagram: "@marco",
+        instagram: "@marcovfernandes",
       },
     },
     {
       name: "Daniel Calazans",
       socialLinks: {
-        instagram: "@daniel",
+        instagram: "@calazans_daniel",
       },
     },
   ];

@@ -8,6 +8,13 @@ const HeroSection = () => {
       ?.scrollIntoView({ behavior: "smooth" });
   };
 
+  const goToPayment = () => {
+    window.open(
+      "https://www.mercadopago.com.br/checkout/v1/payment/redirect/f0f21c9e-f3fa-4a33-8964-500e0d90c869/payment-option-form/?source=link&preference-id=148685969-e56f399f-d64e-49d5-bc74-43d272009574&router-request-id=904b1fe3-d1c6-4bad-9e70-940297e501d6&p=87e33a942928355a104d6378761d1c94",
+      "_blank"
+    );
+  };
+
   return (
     <section className="min-h-screen bg-gradient-to-br from-green-50 to-white relative overflow-hidden">
       <div className="container mx-auto px-4 sm:px-6 relative z-10">
@@ -23,7 +30,8 @@ const HeroSection = () => {
               EDIÇÃO PRIMAVERA
             </h2>
             <p className="text-lg sm:text-xl text-gray-600 mb-8 sm:mb-12 max-w-2xl mx-auto px-2">
-              A energia da primavera em movimento. Corrida, yoga e bem-estar.
+              A energia da primavera em movimento. Corrida, movimento e
+              bem-estar.
             </p>
 
             {/* Event Info - Cards Responsivos */}
@@ -70,7 +78,7 @@ const HeroSection = () => {
               </div>
             </div>
 
-            {/* CTA Button - Responsivo mobile/tablet */}
+            {/* CTA Button - Scroll para formulário de inscrição */}
             <button
               onClick={scrollToRegistration}
               className="btn-primary text-sm sm:text-base lg:text-lg px-6 sm:px-8 lg:px-12 py-3 sm:py-4 inline-block w-full max-w-xs sm:max-w-none sm:w-auto"

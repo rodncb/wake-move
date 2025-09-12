@@ -7,8 +7,10 @@ const RegistrationSection = () => {
     email: "",
     cpf: "",
     phone: "",
-    distance: "4km",
   });
+
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [showModal, setShowModal] = useState(false);
 
   const handleInputChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
@@ -20,11 +22,73 @@ const RegistrationSection = () => {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Aqui será implementada a integração com Mercado Pago
-    console.log("Dados de inscrição:", formData);
-    alert("Em breve você será redirecionado para o pagamento!");
+    setIsSubmitting(true);
+
+    try {
+      // Preparar dados para envio
+      const registrationData = {
+        ...formData,
+        event: "Wake & Move Primavera 2025",
+        timestamp: new Date().toISOString(),
+        userAgent: navigator.userAgent,
+        referrer: document.referrer,
+        sessionId: Date.now().toString(),
+      };
+
+      // Salvar dados no banco via API
+      try {
+        const response = await fetch("/api/analytics.php", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(registrationData),
+        });
+
+        if (response.ok) {
+          console.log("Dados salvos no banco com sucesso!");
+        } else {
+          console.warn(
+            "Erro ao salvar no banco, usando localStorage como backup"
+          );
+        }
+      } catch (apiError) {
+        console.warn("API indisponível, salvando apenas no localStorage");
+      }
+
+      // Salvar no localStorage como backup
+      localStorage.setItem(
+        "wakeMoveRegistration",
+        JSON.stringify(registrationData)
+      );
+
+      // Mostrar modal de confirmação
+      setShowModal(true);
+
+      // Limpar formulário
+      setFormData({
+        name: "",
+        email: "",
+        cpf: "",
+        phone: "",
+      });
+
+      // Após 2 segundos, abrir Mercado Pago e fechar modal
+      setTimeout(() => {
+        setShowModal(false);
+        window.open(
+          "https://www.mercadopago.com.br/checkout/v1/payment/redirect/f0f21c9e-f3fa-4a33-8964-500e0d90c869/payment-option-form/?source=link&preference-id=148685969-e56f399f-d64e-49d5-bc74-43d272009574&router-request-id=904b1fe3-d1c6-4bad-9e70-940297e501d6&p=87e33a942928355a104d6378761d1c94",
+          "_blank"
+        );
+      }, 2000);
+    } catch (error) {
+      console.error("Erro ao processar inscrição:", error);
+      alert("Erro ao processar inscrição. Tente novamente.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -47,7 +111,7 @@ const RegistrationSection = () => {
           {/* Package Info */}
           <div className="bg-white rounded-2xl p-8 shadow-xl">
             <h3 className="font-display text-2xl font-bold text-gray-900 mb-6">
-              Kit Completo - Lote 1
+              Kit Completo Wake & Move
             </h3>
 
             <div className="space-y-4 mb-8">
@@ -72,11 +136,13 @@ const RegistrationSection = () => {
             </div>
 
             <div className="border-t border-gray-200 pt-6">
-              <div className="flex justify-between items-center">
-                <span className="text-2xl font-bold text-gray-900">
-                  R$ 89,00
+              <div className="text-center">
+                <span className="text-3xl font-bold text-gray-900">
+                  R$ 197,00
                 </span>
-                <span className="text-sm text-gray-500">ou 3x sem juros</span>
+                <p className="text-sm text-gray-500 mt-2">
+                  Valor único da inscrição
+                </p>
               </div>
             </div>
           </div>
@@ -162,28 +228,12 @@ const RegistrationSection = () => {
                 </div>
               </div>
 
-              <div>
-                <label
-                  htmlFor="distance"
-                  className="block text-sm font-medium text-gray-700 mb-2"
-                >
-                  Distância da Corrida *
-                </label>
-                <select
-                  id="distance"
-                  name="distance"
-                  required
-                  value={formData.distance}
-                  onChange={handleInputChange}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#9CBE31] focus:border-transparent"
-                >
-                  <option value="4km">4 km - Iniciante</option>
-                  <option value="8km">8 km - Intermediário</option>
-                </select>
-              </div>
-
-              <button type="submit" className="w-full btn-primary py-4 text-lg">
-                FINALIZAR INSCRIÇÃO
+              <button
+                type="submit"
+                disabled={isSubmitting}
+                className="w-full btn-primary py-4 text-lg disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                {isSubmitting ? "PROCESSANDO..." : "FINALIZAR INSCRIÇÃO"}
               </button>
             </form>
 
@@ -194,6 +244,42 @@ const RegistrationSection = () => {
           </div>
         </div>
       </div>
+
+      {/* Modal de Confirmação */}
+      {showModal && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 px-4">
+          <div className="bg-white rounded-2xl p-8 max-w-md w-full text-center shadow-2xl transform animate-pulse">
+            <div className="mb-6">
+              <div className="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                <svg
+                  className="w-8 h-8 text-white"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M5 13l4 4L19 7"
+                  />
+                </svg>
+              </div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-2">
+                Obrigado! ✨
+              </h3>
+              <p className="text-gray-600">
+                Seus dados foram salvos com sucesso!
+                <br />
+                Você será redirecionado para o pagamento...
+              </p>
+            </div>
+            <div className="flex justify-center">
+              <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-[#9CBE31]"></div>
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 };

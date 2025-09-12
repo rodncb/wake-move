@@ -35,7 +35,7 @@ const ScheduleSection = () => {
   ];
 
   return (
-    <section className="section-padding bg-white">
+    <section id="programacao" className="section-padding bg-white">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="font-display text-4xl lg:text-5xl font-bold text-gray-900 mb-6">

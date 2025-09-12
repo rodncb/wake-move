@@ -9,7 +9,6 @@ export interface RegistrationData {
   email: string;
   cpf: string;
   phone: string;
-  distance: "4km" | "8km";
 }
 
 export interface Organizer {

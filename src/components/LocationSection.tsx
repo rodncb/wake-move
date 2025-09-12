@@ -2,7 +2,7 @@ import React from "react";
 
 const LocationSection = () => {
   return (
-    <section className="section-padding bg-white">
+    <section id="local" className="section-padding bg-white">
       <div className="container mx-auto px-6">
         {/* 3 Blocos de Informações Importantes */}
         <div className="grid md:grid-cols-3 gap-8">

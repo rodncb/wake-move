@@ -1,0 +1,20 @@
+<svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <!-- Fundo gradiente com as cores do projeto -->
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#9cbe31;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#7a9626;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Fundo com bordas arredondadas -->
+  <rect width="64" height="64" rx="12" ry="12" fill="url(#bgGradient)"/>
+  
+  <!-- Texto WM com fonte mais legível -->
+  <text x="32" y="42" 
+        font-family="Arial, sans-serif" 
+        font-weight="bold" 
+        font-size="28" 
+        fill="white" 
+        text-anchor="middle">WM</text>
+</svg>
