@@ -1,25 +1,23 @@
 import React from "react";
-import { Users, MapPin, Trophy } from "lucide-react";
+import { Users, Coffee, Trophy } from "lucide-react";
 
 const SpringEditionSection = () => {
   const features = [
     {
-      icon: <MapPin className="w-8 h-8" />,
-      title: "Local Exclusivo",
-      description:
-        "Estrutura ampla e segura no Aeroporto de Resende para uma experiência única.",
+      icon: <Coffee className="w-8 h-8" />,
+      title: "Café da manhã exclusivo",
+      description: "Um pós-corrida especial com sabor Artesã.",
     },
     {
       icon: <Users className="w-8 h-8" />,
-      title: "Comunidade Ampliada",
-      description:
-        "Expectativa de mais de 300 participantes para uma experiência incrível.",
+      title: "Movimento e Conexão",
+      description: "Energia coletiva para uma experiência incrível.",
     },
     {
       icon: <Trophy className="w-8 h-8" />,
-      title: "Sucesso Comprovado",
+      title: "Histórico de sucesso",
       description:
-        "Nossa primeira edição reuniu mais de 100 pessoas e foi um sucesso total.",
+        "A primeira edição já foi um marco, e agora será ainda maior.",
     },
   ];
 
@@ -28,12 +26,12 @@ const SpringEditionSection = () => {
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="font-display text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-            O que esperar da{" "}
-            <span className="text-[#9CBE31]">Edição Primavera</span>?
+            Por que você não pode perder a{" "}
+            <span className="text-[#9CBE31]">Edição VERÃO</span>?
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Uma experiência transformadora que combina movimento, bem-estar e
-            conexão em um ambiente único e inspirador.
+            Prepare-se para uma manhã inesquecível que une corrida, música e
+            comunidade em um ambiente inspirador.
           </p>
         </div>
 
@@ -60,16 +58,16 @@ const SpringEditionSection = () => {
         <div className="bg-gradient-to-r from-[#9CBE31] to-[#7A9626] rounded-2xl p-12 text-white">
           <div className="grid md:grid-cols-3 gap-8 text-center">
             <div>
-              <div className="text-4xl font-bold mb-2">300+</div>
-              <div className="text-lg opacity-90">Participantes Esperados</div>
+              <div className="text-4xl font-bold mb-2">+200</div>
+              <div className="text-lg opacity-90">participantes esperados</div>
             </div>
             <div>
               <div className="text-4xl font-bold mb-2">100%</div>
-              <div className="text-lg opacity-90">Energia e Diversão</div>
+              <div className="text-lg opacity-90">energia e boas vibrações</div>
             </div>
             <div>
               <div className="text-4xl font-bold mb-2">1</div>
-              <div className="text-lg opacity-90">Experiência Única</div>
+              <div className="text-lg opacity-90">experiência inesquecível</div>
             </div>
           </div>
         </div>

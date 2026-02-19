@@ -5,20 +5,38 @@ const OrganizersSection = () => {
   const organizers: Organizer[] = [
     {
       name: "Yume Matsumura",
+      description:
+        "Apaixonada por esportes, empreendedora e chef da Padaria Artesã, especializada em fermentação natural e viennoiserie.",
+      photo: "/media/Yume.jpeg",
       socialLinks: {
         instagram: "@yume.matsumura",
       },
     },
     {
       name: "Marco Antônio Fernandes",
+      description:
+        "Fundador da Iron House e da Metodologia Base Forte, apaixonado por esporte, inspira equilíbrio e estilo de vida ativo.",
+      photo: "/media/Marco.png",
       socialLinks: {
         instagram: "@marcovfernandes",
       },
     },
     {
       name: "Daniel Calazans",
+      description:
+        "Engenheiro, visionário em experiências coletivas, saúde e comunidade.",
+      photo: "/media/Daniel.png",
       socialLinks: {
         instagram: "@calazans_daniel",
+      },
+    },
+    {
+      name: "Tales Rocha",
+      description:
+        "Empreendedor criativo com background em fotografia, audiovisual e marketing, trabalha há anos construindo posicionamento e resultados para marcas na região. É fundador da Roki Media e atua na interseção entre criatividade e tecnologia, sempre com foco em experiência, narrativa e impacto.",
+      photo: "/media/Tales.jpg",
+      socialLinks: {
+        instagram: "@rochatales",
       },
     },
   ];
@@ -31,30 +49,47 @@ const OrganizersSection = () => {
             <span className="text-[#9CBE31]">Idealizadores</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Conheça quem está por trás do Wake & Move e trouxe essa iniciativa
-            transformadora para Resende e região.
+            Quatro apaixonados por saúde, movimento e bem-estar uniram forças
+            para transformar manhãs comuns em experiências únicas em Resende e
+            região.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8 mb-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
           {organizers.map((organizer, index) => (
             <div
               key={index}
               className="bg-white rounded-xl p-8 shadow-lg text-center hover:shadow-xl transition-shadow duration-300"
             >
-              {/* Photo placeholder */}
-              <div className="w-32 h-32 bg-gradient-to-br from-[#9CBE31] to-[#7A9626] rounded-full mx-auto mb-6 flex items-center justify-center">
-                <span className="text-white text-2xl font-bold">
-                  {organizer.name
-                    .split(" ")
-                    .map((n) => n[0])
-                    .join("")}
-                </span>
+              {/* Profile Photo */}
+              <div className="w-32 h-32 mx-auto mb-6">
+                {organizer.photo ? (
+                  <img
+                    src={organizer.photo}
+                    alt={organizer.name}
+                    className="w-full h-full object-cover object-center rounded-full shadow-lg"
+                  />
+                ) : (
+                  <div className="w-full h-full bg-gradient-to-br from-[#9CBE31] to-[#7A9626] rounded-full flex items-center justify-center">
+                    <span className="text-white text-2xl font-bold">
+                      {organizer.name
+                        .split(" ")
+                        .map((n) => n[0])
+                        .join("")}
+                    </span>
+                  </div>
+                )}
               </div>
 
-              <h3 className="font-semibold text-xl text-gray-900 mb-4">
+              <h3 className="font-semibold text-xl text-gray-900 mb-2">
                 {organizer.name}
               </h3>
+
+              {organizer.description && (
+                <p className="text-gray-600 text-sm mb-4 leading-relaxed">
+                  {organizer.description}
+                </p>
+              )}
 
               {organizer.socialLinks?.instagram && (
                 <a
