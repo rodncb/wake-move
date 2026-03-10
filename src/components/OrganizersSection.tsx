@@ -67,7 +67,7 @@ const OrganizersSection = () => {
                   <img
                     src={organizer.photo}
                     alt={organizer.name}
-                    className="w-full h-full object-cover object-center rounded-full shadow-lg"
+                    className="w-full h-full object-cover object-top rounded-full shadow-lg"
                   />
                 ) : (
                   <div className="w-full h-full bg-gradient-to-br from-[#9CBE31] to-[#7A9626] rounded-full flex items-center justify-center">
