@@ -33,8 +33,8 @@ const OrganizersSection = () => {
     {
       name: "Tales Rocha",
       description:
-        "Empreendedor criativo com background em fotografia, audiovisual e marketing, trabalha há anos construindo posicionamento e resultados para marcas na região. É fundador da Roki Media e atua na interseção entre criatividade e tecnologia, sempre com foco em experiência, narrativa e impacto.",
-      photo: "/media/Tales.jpg",
+        "Empreendedor criativo com background em fotografia, audiovisual e marketing, trabalha há anos construindo posicionamento e resultados para marcas na região.",
+      photo: "/media/ROCHATALES.png",
       socialLinks: {
         instagram: "@rochatales",
       },
